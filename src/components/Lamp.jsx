@@ -1,9 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-const Lamp = ({ onOff, toogleOnOff }) => {
+const Lamp = () => {
+
+    const [onOff, setonOff] = useState("off");
+
+    const toogleOnOff = () => {
+        if (onOff === "off") {
+          setonOff("on")
+        } else {
+          setonOff("off")
+        }
+      }
 
     return (
-        <div>
+        <div className='lamp-container'>
             <div className={`circle ${onOff}`}></div>
             <button onClick={toogleOnOff} className='btn'>{onOff}</button>
         </div>
